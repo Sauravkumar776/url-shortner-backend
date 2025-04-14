@@ -3,10 +3,10 @@ const app = express();
 const dotenv = require("dotenv");
 dotenv.config();
 const connectMongo = require('./config/db');
-const urlRoutes = require('./routes/urlRoutes')
+const routes = require('./routes'); 
 
 app.use(express.json());
-app.use('/', urlRoutes)
+app.use('/', routes);
 
 connectMongo().then(() => {
     app.listen(process.env.PORT, () => {
